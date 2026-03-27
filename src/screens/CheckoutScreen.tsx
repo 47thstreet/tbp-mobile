@@ -14,6 +14,7 @@ import { RootStackParamList } from '../types';
 import { createCheckoutSession, confirmPayment } from '../services/checkout';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
+import { analytics } from '../services/analytics';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Checkout'>;
 
@@ -42,7 +43,7 @@ export function CheckoutScreen({ route, navigation }: Props) {
         paymentIntentClientSecret: session.clientSecret,
         merchantDisplayName: 'TB Productions',
         style: 'alwaysDark',
-        returnURL: 'tbp-mobile://checkout-complete',
+        returnURL: 'tbp://checkout-complete',
       });
 
       if (error) {
@@ -77,6 +78,7 @@ export function CheckoutScreen({ route, navigation }: Props) {
       const result = await confirmPayment(sessionId);
 
       if (result.success && result.ticketId) {
+        analytics.trackFirstTicketPurchase(eventId, ticketTypeName, price);
         navigation.replace('TicketConfirmation', {
           ticketId: result.ticketId,
           eventTitle: '',

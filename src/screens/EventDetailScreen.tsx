@@ -19,6 +19,7 @@ import { LoadingScreen } from '../components/LoadingScreen';
 import { ShareEventButton } from '../components/ShareEventButton';
 import { AddToCalendarButton } from '../components/AddToCalendarButton';
 import { scheduleEventReminder } from '../services/notifications';
+import { analytics } from '../services/analytics';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'EventDetail'>;
 
@@ -40,7 +41,10 @@ export function EventDetailScreen({ route, navigation }: Props) {
   useEffect(() => {
     api.events
       .detail(eventId)
-      .then(setEvent)
+      .then((data) => {
+        setEvent(data);
+        analytics.trackFirstEventView(eventId);
+      })
       .catch(() => Alert.alert('Error', 'Could not load event details'))
       .finally(() => setLoading(false));
   }, [eventId]);

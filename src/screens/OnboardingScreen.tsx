@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
+import { analytics } from '../services/analytics';
 
 const { width } = Dimensions.get('window');
 const ONBOARDING_KEY = 'tbp_onboarding_done';
@@ -53,9 +54,30 @@ interface Props {
 
 export function OnboardingScreen({ onComplete }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
   const flatListRef = useRef<FlatList>(null);
+  const slideEnteredAt = useRef<number>(Date.now());
+  const slidesViewed = useRef(new Set<string>(['1']));
+
+  useEffect(() => {
+    analytics.trackSlideView(slides[0].id, slides[0].title);
+  }, []);
 
   const handleComplete = async () => {
+    const current = slides[activeIndex];
+    const dwellMs = Date.now() - slideEnteredAt.current;
+    analytics.trackSlideExit(current.id, current.title, dwellMs);
+    await analytics.trackOnboardingComplete(slidesViewed.current.size, slides.length);
+    await SecureStore.setItemAsync(ONBOARDING_KEY, 'true');
+    onComplete();
+  };
+
+  const handleSkip = async () => {
+    const current = slides[activeIndex];
+    const dwellMs = Date.now() - slideEnteredAt.current;
+    analytics.trackSlideExit(current.id, current.title, dwellMs);
+    analytics.trackOnboardingSkip(current.id, current.title);
+    await analytics.trackOnboardingComplete(slidesViewed.current.size, slides.length);
     await SecureStore.setItemAsync(ONBOARDING_KEY, 'true');
     onComplete();
   };
@@ -71,7 +93,22 @@ export function OnboardingScreen({ onComplete }: Props) {
   const onViewableItemsChanged = useRef(
     ({ viewableItems }: { viewableItems: ViewToken[] }) => {
       if (viewableItems.length > 0 && viewableItems[0].index != null) {
-        setActiveIndex(viewableItems[0].index);
+        const newIndex = viewableItems[0].index;
+        const prevIndex = activeIndexRef.current;
+        const prevSlide = slides[prevIndex];
+        const dwellMs = Date.now() - slideEnteredAt.current;
+
+        if (newIndex !== prevIndex) {
+          analytics.trackSlideExit(prevSlide.id, prevSlide.title, dwellMs);
+        }
+
+        const newSlide = slides[newIndex];
+        slidesViewed.current.add(newSlide.id);
+        analytics.trackSlideView(newSlide.id, newSlide.title);
+        slideEnteredAt.current = Date.now();
+
+        activeIndexRef.current = newIndex;
+        setActiveIndex(newIndex);
       }
     }
   ).current;
@@ -80,7 +117,7 @@ export function OnboardingScreen({ onComplete }: Props) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.skipButton} onPress={handleComplete}>
+      <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
         <Text style={styles.skipText}>Skip</Text>
       </TouchableOpacity>
 

@@ -65,4 +65,7 @@ export const ENDPOINTS = {
   booking: {
     request: '/api/booking/request',
   },
+  analytics: {
+    events: '/api/analytics/events',
+  },
 };

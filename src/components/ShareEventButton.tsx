@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Event } from '../types';
 import { API_BASE_URL } from '../constants/api';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
+import { analytics } from '../services/analytics';
 
 interface Props {
   event: Event;
@@ -16,11 +17,14 @@ export function ShareEventButton({ event, compact }: Props) {
     const message = `Check out ${event.title} at ${event.venue} on ${event.date}`;
 
     try {
-      await Share.share(
+      const result = await Share.share(
         Platform.OS === 'ios'
           ? { message, url }
           : { message: `${message}\n${url}` }
       );
+      if (result.action === Share.sharedAction) {
+        analytics.trackFirstShare(event.id);
+      }
     } catch {
       // User cancelled
     }
