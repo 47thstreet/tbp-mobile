@@ -41,8 +41,28 @@ export const ENDPOINTS = {
     list: '/api/feed',
     like: (postId: string) => `/api/feed/${postId}/like`,
   },
+  pushNotifications: {
+    register: '/api/push/register',
+    unregister: '/api/push/unregister',
+  },
+  notificationPrefs: {
+    get: '/api/user/notification-prefs',
+    update: '/api/user/notification-prefs',
+  },
   wallet: {
     applePass: (ticketId: string) => `/api/wallet/apple-pass/${ticketId}`,
     googlePass: (ticketId: string) => `/api/wallet/google-pass/${ticketId}`,
+  },
+  venues: {
+    list: '/api/venues',
+    detail: (id: string) => `/api/venues/${id}`,
+  },
+  djFollow: {
+    follow: (djId: string) => `/api/djs/${djId}/follow`,
+    unfollow: (djId: string) => `/api/djs/${djId}/unfollow`,
+    tracks: (djId: string) => `/api/djs/${djId}/tracks`,
+  },
+  booking: {
+    request: '/api/booking/request',
   },
 };

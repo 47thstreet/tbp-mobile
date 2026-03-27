@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,19 +9,18 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  Switch,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import { RootStackParamList } from '../types';
 import { useAuth } from '../context/AuthContext';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
-import {
-  requestNotificationPermission,
-  areNotificationsEnabled,
-} from '../services/notifications';
 
 export function ProfileScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { user, isAuthenticated, login, register, logout } = useAuth();
   const [mode, setMode] = useState<'login' | 'register'>('login');
   const [email, setEmail] = useState('');
@@ -62,27 +61,6 @@ export function ProfileScreen() {
     ]);
   };
 
-  const [notificationsOn, setNotificationsOn] = useState(false);
-
-  useEffect(() => {
-    areNotificationsEnabled().then(setNotificationsOn);
-  }, []);
-
-  const toggleNotifications = async (value: boolean) => {
-    if (value) {
-      const granted = await requestNotificationPermission();
-      setNotificationsOn(granted);
-      if (!granted) {
-        Alert.alert(
-          'Notifications Disabled',
-          'Please enable notifications in your device Settings to receive event reminders.'
-        );
-      }
-    } else {
-      setNotificationsOn(false);
-    }
-  };
-
   if (isAuthenticated && user) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -102,16 +80,11 @@ export function ProfileScreen() {
 
           <GlassCard style={styles.menuCard}>
             <MenuItem icon="person-outline" label="Edit Profile" />
-            <View style={menuStyles.item}>
-              <Ionicons name="notifications-outline" size={20} color={Colors.textSecondary} />
-              <Text style={menuStyles.label}>Event Reminders</Text>
-              <Switch
-                value={notificationsOn}
-                onValueChange={toggleNotifications}
-                trackColor={{ false: Colors.surfaceLight, true: Colors.primaryDark }}
-                thumbColor={notificationsOn ? Colors.primary : Colors.textMuted}
-              />
-            </View>
+            <MenuItem
+              icon="notifications-outline"
+              label="Notifications"
+              onPress={() => navigation.navigate('NotificationPrefs')}
+            />
             <MenuItem icon="shield-checkmark-outline" label="Privacy" />
             <MenuItem icon="help-circle-outline" label="Help & Support" />
           </GlassCard>
@@ -214,9 +187,9 @@ export function ProfileScreen() {
   );
 }
 
-function MenuItem({ icon, label }: { icon: string; label: string }) {
+function MenuItem({ icon, label, onPress }: { icon: string; label: string; onPress?: () => void }) {
   return (
-    <TouchableOpacity style={menuStyles.item}>
+    <TouchableOpacity style={menuStyles.item} onPress={onPress}>
       <Ionicons name={icon as any} size={20} color={Colors.textSecondary} />
       <Text style={menuStyles.label}>{label}</Text>
       <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />

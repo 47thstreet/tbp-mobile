@@ -1,6 +1,6 @@
 import * as SecureStore from 'expo-secure-store';
 import { API_BASE_URL, ENDPOINTS } from '../constants/api';
-import { Event, Ticket, DJ, User, PromoterStats, FeedResponse } from '../types';
+import { Event, Ticket, DJ, User, PromoterStats, FeedResponse, NotificationPreferences, Venue, Track, BookingRequest } from '../types';
 
 const TOKEN_KEY = 'tbp_auth_token';
 
@@ -78,9 +78,37 @@ export const api = {
   djs: {
     list: () => request<DJ[]>(ENDPOINTS.djs.list),
     detail: (id: string) => request<DJ>(ENDPOINTS.djs.detail(id)),
+    tracks: (id: string) => request<Track[]>(ENDPOINTS.djFollow.tracks(id)),
+    follow: (id: string) =>
+      request<{ followed: boolean; followerCount: number }>(ENDPOINTS.djFollow.follow(id), {
+        method: 'POST',
+      }),
+    unfollow: (id: string) =>
+      request<{ followed: boolean; followerCount: number }>(ENDPOINTS.djFollow.unfollow(id), {
+        method: 'POST',
+      }),
+  },
+  venues: {
+    list: () => request<Venue[]>(ENDPOINTS.venues.list),
+    detail: (id: string) => request<Venue>(ENDPOINTS.venues.detail(id)),
+  },
+  booking: {
+    request: (data: BookingRequest) =>
+      request<{ success: boolean; bookingId: string }>(ENDPOINTS.booking.request, {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }),
   },
   promoter: {
     stats: () => request<PromoterStats>(ENDPOINTS.promoter.stats),
+  },
+  notificationPrefs: {
+    get: () => request<NotificationPreferences>(ENDPOINTS.notificationPrefs.get),
+    update: (prefs: Partial<NotificationPreferences>) =>
+      request<NotificationPreferences>(ENDPOINTS.notificationPrefs.update, {
+        method: 'PUT',
+        body: JSON.stringify(prefs),
+      }),
   },
   feed: {
     list: (cursor?: string) =>

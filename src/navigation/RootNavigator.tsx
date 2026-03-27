@@ -3,11 +3,16 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 import { Colors } from '../constants/theme';
+import { useAuth } from '../context/AuthContext';
+import { usePushNotifications } from '../hooks/usePushNotifications';
 import { MainTabs } from './MainTabs';
 import { EventDetailScreen } from '../screens/EventDetailScreen';
 import { DJDetailScreen } from '../screens/DJDetailScreen';
+import { VenueDetailScreen } from '../screens/VenueDetailScreen';
 import { CheckoutScreen } from '../screens/CheckoutScreen';
 import { TicketConfirmationScreen } from '../screens/TicketConfirmationScreen';
+import { NearbyEventsScreen } from '../screens/NearbyEventsScreen';
+import { NotificationPrefsScreen } from '../screens/NotificationPrefsScreen';
 import { FullScreenTicketScreen } from '../screens/FullScreenTicketScreen';
 import { OnboardingScreen, hasCompletedOnboarding } from '../screens/OnboardingScreen';
 import { LoadingScreen } from '../components/LoadingScreen';
@@ -28,6 +33,12 @@ const DarkTheme = {
   },
 };
 
+function PushNotificationHandler() {
+  const { isAuthenticated } = useAuth();
+  usePushNotifications(isAuthenticated);
+  return null;
+}
+
 export function RootNavigator() {
   const [showOnboarding, setShowOnboarding] = useState<boolean | null>(null);
 
@@ -45,6 +56,7 @@ export function RootNavigator() {
 
   return (
     <NavigationContainer theme={DarkTheme}>
+      <PushNotificationHandler />
       <Stack.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: Colors.surface },
@@ -70,6 +82,11 @@ export function RootNavigator() {
           options={{ title: 'DJ', headerTransparent: true, headerTitle: '' }}
         />
         <Stack.Screen
+          name="VenueDetail"
+          component={VenueDetailScreen}
+          options={{ title: 'Venue', headerTransparent: true, headerTitle: '' }}
+        />
+        <Stack.Screen
           name="Checkout"
           component={CheckoutScreen}
           options={{ title: 'Checkout', headerBackTitle: 'Back' }}
@@ -81,6 +98,16 @@ export function RootNavigator() {
             headerShown: false,
             gestureEnabled: false,
           }}
+        />
+        <Stack.Screen
+          name="NearbyEvents"
+          component={NearbyEventsScreen}
+          options={{ title: 'Nearby Events', headerTransparent: true, headerTitle: '' }}
+        />
+        <Stack.Screen
+          name="NotificationPrefs"
+          component={NotificationPrefsScreen}
+          options={{ title: 'Notifications' }}
         />
         <Stack.Screen
           name="FullScreenTicket"

@@ -14,6 +14,8 @@ export interface Event {
   promoter?: string;
   tags?: string[];
   status: 'upcoming' | 'live' | 'past' | 'cancelled';
+  latitude?: number;
+  longitude?: number;
 }
 
 export interface TicketType {
@@ -39,18 +41,56 @@ export interface Ticket {
   coverImage?: string;
 }
 
+export interface Track {
+  id: string;
+  title: string;
+  artist: string;
+  audioUrl: string;
+  duration: number;
+  coverArt?: string;
+}
+
 export interface DJ {
   id: string;
   name: string;
   bio?: string;
   photo?: string;
   genres: string[];
+  tracks?: Track[];
+  followed?: boolean;
+  followerCount?: number;
   socialLinks?: {
     instagram?: string;
     soundcloud?: string;
     spotify?: string;
   };
   upcomingEvents?: Event[];
+}
+
+export interface BookingRequest {
+  djId: string;
+  eventDate: string;
+  eventName: string;
+  venue: string;
+  message?: string;
+  contactEmail: string;
+}
+
+export interface Venue {
+  id: string;
+  name: string;
+  description?: string;
+  address: string;
+  city: string;
+  photo?: string;
+  coverImage?: string;
+  capacity?: number;
+  amenities?: string[];
+  upcomingEvents?: Event[];
+  socialLinks?: {
+    instagram?: string;
+    website?: string;
+  };
 }
 
 export interface User {
@@ -102,6 +142,29 @@ export interface FeedResponse {
   hasMore: boolean;
 }
 
+export type PushNotificationType =
+  | 'event_reminder_24h'
+  | 'event_reminder_2h'
+  | 'ticket_purchased'
+  | 'friend_attending'
+  | 'new_event_followed_dj';
+
+export interface PushNotificationData {
+  type: PushNotificationType;
+  eventId?: string;
+  ticketId?: string;
+  djId?: string;
+  title?: string;
+  body?: string;
+}
+
+export interface NotificationPreferences {
+  eventReminders: boolean;
+  friendActivity: boolean;
+  newEventsFollowedDjs: boolean;
+  promotions: boolean;
+}
+
 export interface CheckoutSession {
   sessionId: string;
   clientSecret: string;
@@ -121,8 +184,11 @@ export type RootStackParamList = {
   EventDetail: { eventId: string };
   TicketDetail: { ticketId: string };
   DJDetail: { djId: string };
+  VenueDetail: { venueId: string };
   Checkout: { eventId: string; ticketTypeId: string; ticketTypeName: string; price: number };
   TicketConfirmation: { ticketId: string; eventTitle: string; ticketTypeName: string };
+  NearbyEvents: undefined;
+  NotificationPrefs: undefined;
   FullScreenTicket: { ticket: Ticket };
   Login: undefined;
   Register: undefined;
@@ -130,9 +196,11 @@ export type RootStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
+  Nearby: undefined;
   Feed: undefined;
   MyTickets: undefined;
   DJs: undefined;
+  Venues: undefined;
   Promoter: undefined;
   Profile: undefined;
 };

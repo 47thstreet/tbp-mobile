@@ -7,16 +7,20 @@ import { HomeScreen } from '../screens/HomeScreen';
 import { SocialFeedScreen } from '../screens/SocialFeedScreen';
 import { MyTicketsScreen } from '../screens/MyTicketsScreen';
 import { DJsScreen } from '../screens/DJsScreen';
+import { VenuesScreen } from '../screens/VenuesScreen';
 import { PromoterDashboardScreen } from '../screens/PromoterDashboardScreen';
+import { NearbyEventsScreen } from '../screens/NearbyEventsScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 const tabIcons: Record<keyof MainTabParamList, { active: string; inactive: string }> = {
   Home: { active: 'flame', inactive: 'flame-outline' },
+  Nearby: { active: 'compass', inactive: 'compass-outline' },
   Feed: { active: 'images', inactive: 'images-outline' },
   MyTickets: { active: 'ticket', inactive: 'ticket-outline' },
   DJs: { active: 'headset', inactive: 'headset-outline' },
+  Venues: { active: 'business', inactive: 'business-outline' },
   Promoter: { active: 'megaphone', inactive: 'megaphone-outline' },
   Profile: { active: 'person', inactive: 'person-outline' },
 };
@@ -47,6 +51,7 @@ export function MainTabs() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Nearby" component={NearbyEventsScreen} options={{ tabBarLabel: 'Nearby' }} />
       <Tab.Screen name="Feed" component={SocialFeedScreen} />
       <Tab.Screen
         name="MyTickets"
@@ -54,6 +59,7 @@ export function MainTabs() {
         options={{ tabBarLabel: 'Tickets' }}
       />
       <Tab.Screen name="DJs" component={DJsScreen} />
+      <Tab.Screen name="Venues" component={VenuesScreen} />
       <Tab.Screen name="Promoter" component={PromoterDashboardScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
