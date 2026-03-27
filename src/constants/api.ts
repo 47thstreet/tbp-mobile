@@ -37,4 +37,8 @@ export const ENDPOINTS = {
     createSession: '/api/checkout/create-session',
     confirmPayment: (sessionId: string) => `/api/checkout/confirm/${sessionId}`,
   },
+  wallet: {
+    applePass: (ticketId: string) => `/api/wallet/apple-pass/${ticketId}`,
+    googlePass: (ticketId: string) => `/api/wallet/google-pass/${ticketId}`,
+  },
 };

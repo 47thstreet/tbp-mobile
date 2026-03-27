@@ -5,12 +5,21 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
+  Alert,
+  Platform,
+  ScrollView,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import SvgQRCode from 'react-native-qrcode-svg';
 import { RootStackParamList, Ticket } from '../types';
 import { api } from '../services/api';
+import {
+  addToAppleWallet,
+  addToGoogleWallet,
+  isAppleWalletAvailable,
+  isGoogleWalletAvailable,
+} from '../services/wallet';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
 
@@ -21,6 +30,7 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [walletLoading, setWalletLoading] = useState(false);
 
   useEffect(() => {
     api.tickets
@@ -35,6 +45,30 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
       index: 0,
       routes: [{ name: 'MainTabs' }],
     });
+  };
+
+  const handleAddToAppleWallet = async () => {
+    setWalletLoading(true);
+    try {
+      await addToAppleWallet(ticketId);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Could not add to Apple Wallet';
+      Alert.alert('Apple Wallet', message);
+    } finally {
+      setWalletLoading(false);
+    }
+  };
+
+  const handleAddToGoogleWallet = async () => {
+    setWalletLoading(true);
+    try {
+      await addToGoogleWallet(ticketId);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Could not add to Google Wallet';
+      Alert.alert('Google Wallet', message);
+    } finally {
+      setWalletLoading(false);
+    }
   };
 
   if (loading) {
@@ -64,7 +98,10 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.scrollContainer}
+      contentContainerStyle={styles.container}
+    >
       <View style={styles.successIcon}>
         <Ionicons name="checkmark-circle" size={64} color={Colors.success} />
       </View>
@@ -102,6 +139,40 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
 
       <Text style={styles.hint}>Show this QR code at the door</Text>
 
+      {isAppleWalletAvailable() && (
+        <TouchableOpacity
+          style={styles.walletButton}
+          onPress={handleAddToAppleWallet}
+          disabled={walletLoading}
+        >
+          {walletLoading ? (
+            <ActivityIndicator size="small" color="#FFFFFF" />
+          ) : (
+            <>
+              <Ionicons name="wallet" size={20} color="#FFFFFF" />
+              <Text style={styles.walletButtonText}>Add to Apple Wallet</Text>
+            </>
+          )}
+        </TouchableOpacity>
+      )}
+
+      {isGoogleWalletAvailable() && (
+        <TouchableOpacity
+          style={styles.googleWalletButton}
+          onPress={handleAddToGoogleWallet}
+          disabled={walletLoading}
+        >
+          {walletLoading ? (
+            <ActivityIndicator size="small" color="#FFFFFF" />
+          ) : (
+            <>
+              <Ionicons name="wallet" size={20} color="#FFFFFF" />
+              <Text style={styles.walletButtonText}>Add to Google Wallet</Text>
+            </>
+          )}
+        </TouchableOpacity>
+      )}
+
       <View style={styles.actions}>
         <TouchableOpacity
           style={styles.primaryButton}
@@ -115,17 +186,21 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
           <Text style={styles.secondaryButtonText}>Go to My Tickets</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  scrollContainer: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  container: {
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: Spacing.lg,
+    paddingVertical: Spacing.xxl,
   },
   loadingText: {
     color: Colors.textSecondary,
@@ -178,6 +253,33 @@ const styles = StyleSheet.create({
     fontSize: FontSize.sm,
     marginTop: Spacing.md,
     marginBottom: Spacing.lg,
+  },
+  walletButton: {
+    backgroundColor: '#000000',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.sm,
+    paddingVertical: 14,
+    borderRadius: BorderRadius.md,
+    width: '100%',
+    marginBottom: Spacing.sm,
+  },
+  googleWalletButton: {
+    backgroundColor: '#1A73E8',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.sm,
+    paddingVertical: 14,
+    borderRadius: BorderRadius.md,
+    width: '100%',
+    marginBottom: Spacing.sm,
+  },
+  walletButtonText: {
+    color: '#FFFFFF',
+    fontSize: FontSize.lg,
+    fontWeight: '600',
   },
   actions: {
     width: '100%',
