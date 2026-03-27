@@ -11,10 +11,8 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
 import { RootStackParamList, Event } from '../types';
 import { api } from '../services/api';
-import { API_BASE_URL } from '../constants/api';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
 import { LoadingScreen } from '../components/LoadingScreen';
@@ -47,9 +45,13 @@ export function EventDetailScreen({ route, navigation }: Props) {
       .finally(() => setLoading(false));
   }, [eventId]);
 
-  const openCheckout = async (ticketTypeId: string) => {
-    const url = `${API_BASE_URL}/events/${eventId}/checkout?ticket=${ticketTypeId}`;
-    await WebBrowser.openBrowserAsync(url);
+  const openCheckout = (ticketTypeId: string, ticketTypeName: string, price: number) => {
+    navigation.navigate('Checkout', {
+      eventId,
+      ticketTypeId,
+      ticketTypeName,
+      price,
+    });
   };
 
   useEffect(() => {
@@ -183,7 +185,7 @@ export function EventDetailScreen({ route, navigation }: Props) {
                         ticket.available === 0 && styles.buyButtonDisabled,
                       ]}
                       disabled={ticket.available === 0}
-                      onPress={() => openCheckout(ticket.id)}
+                      onPress={() => openCheckout(ticket.id, ticket.name, ticket.price)}
                     >
                       <Text style={styles.buyButtonText}>
                         {ticket.available > 0 ? 'Get Tickets' : 'Sold Out'}

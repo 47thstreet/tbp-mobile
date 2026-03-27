@@ -33,4 +33,8 @@ export const ENDPOINTS = {
     stats: '/api/promoter/stats',
     link: '/api/promoter/link',
   },
+  checkout: {
+    createSession: '/api/checkout/create-session',
+    confirmPayment: (sessionId: string) => `/api/checkout/confirm/${sessionId}`,
+  },
 };

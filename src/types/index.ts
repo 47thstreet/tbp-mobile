@@ -76,12 +76,27 @@ export interface PromoterStats {
   promoLink: string;
 }
 
+export interface CheckoutSession {
+  sessionId: string;
+  clientSecret: string;
+  publishableKey: string;
+  amount: number;
+  currency: string;
+}
+
+export interface CheckoutResult {
+  success: boolean;
+  ticketId?: string;
+  error?: string;
+}
+
 export type RootStackParamList = {
   MainTabs: undefined;
   EventDetail: { eventId: string };
   TicketDetail: { ticketId: string };
   DJDetail: { djId: string };
-  TicketCheckout: { eventId: string; ticketTypeId: string };
+  Checkout: { eventId: string; ticketTypeId: string; ticketTypeName: string; price: number };
+  TicketConfirmation: { ticketId: string; eventTitle: string; ticketTypeName: string };
   FullScreenTicket: { ticket: Ticket };
   Login: undefined;
   Register: undefined;

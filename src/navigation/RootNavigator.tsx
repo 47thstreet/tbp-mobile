@@ -6,6 +6,8 @@ import { Colors } from '../constants/theme';
 import { MainTabs } from './MainTabs';
 import { EventDetailScreen } from '../screens/EventDetailScreen';
 import { DJDetailScreen } from '../screens/DJDetailScreen';
+import { CheckoutScreen } from '../screens/CheckoutScreen';
+import { TicketConfirmationScreen } from '../screens/TicketConfirmationScreen';
 import { FullScreenTicketScreen } from '../screens/FullScreenTicketScreen';
 import { OnboardingScreen, hasCompletedOnboarding } from '../screens/OnboardingScreen';
 import { LoadingScreen } from '../components/LoadingScreen';
@@ -66,6 +68,19 @@ export function RootNavigator() {
           name="DJDetail"
           component={DJDetailScreen}
           options={{ title: 'DJ', headerTransparent: true, headerTitle: '' }}
+        />
+        <Stack.Screen
+          name="Checkout"
+          component={CheckoutScreen}
+          options={{ title: 'Checkout', headerBackTitle: 'Back' }}
+        />
+        <Stack.Screen
+          name="TicketConfirmation"
+          component={TicketConfirmationScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="FullScreenTicket"

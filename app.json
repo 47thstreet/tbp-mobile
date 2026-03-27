@@ -27,14 +27,19 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.tbgroup.tbpmobile",
-      "permissions": ["CAMERA", "READ_CALENDAR", "WRITE_CALENDAR"]
+      "permissions": [
+        "CAMERA",
+        "READ_CALENDAR",
+        "WRITE_CALENDAR"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-camera",
-      "expo-secure-store"
+      "expo-secure-store",
+      "@stripe/stripe-react-native"
     ]
   }
 }
