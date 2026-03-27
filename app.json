@@ -16,7 +16,8 @@
       "bundleIdentifier": "com.tbgroup.tbpmobile",
       "infoPlist": {
         "NSCameraUsageDescription": "Used to scan QR codes on tickets",
-        "NSCalendarsUsageDescription": "Add events to your calendar"
+        "NSCalendarsUsageDescription": "Add events to your calendar",
+        "NSLocationWhenInUseUsageDescription": "Find events happening near you"
       }
     },
     "android": {
@@ -30,7 +31,9 @@
       "permissions": [
         "CAMERA",
         "READ_CALENDAR",
-        "WRITE_CALENDAR"
+        "WRITE_CALENDAR",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
       ]
     },
     "web": {
@@ -39,7 +42,13 @@
     "plugins": [
       "expo-camera",
       "expo-secure-store",
-      "@stripe/stripe-react-native"
+      "@stripe/stripe-react-native",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Find events happening near you"
+        }
+      ]
     ]
   }
 }

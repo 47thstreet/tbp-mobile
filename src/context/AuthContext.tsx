@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { User } from '../types';
 import { api, setToken, removeToken } from '../services/api';
+import { unregisterPushToken } from '../services/pushNotifications';
 
 interface AuthState {
   user: User | null;
@@ -50,6 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logout = async () => {
+    await unregisterPushToken();
     await removeToken();
     setState({ user: null, isLoading: false, isAuthenticated: false });
   };
