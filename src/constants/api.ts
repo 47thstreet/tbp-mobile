@@ -1,12 +1,13 @@
 import { Platform } from 'react-native';
 
-const LOCAL_API = Platform.select({
-  ios: 'http://localhost:3032',
-  android: 'http://10.0.2.2:3032',
-  default: 'http://localhost:3032',
+const KARTIS_URL = process.env.EXPO_PUBLIC_KARTIS_URL || 'http://localhost:3031';
+
+const API_BASE = Platform.select({
+  android: KARTIS_URL.replace('localhost', '10.0.2.2'),
+  default: KARTIS_URL,
 });
 
-export const API_BASE_URL = LOCAL_API;
+export const API_BASE_URL = API_BASE;
 
 export const ENDPOINTS = {
   events: {
