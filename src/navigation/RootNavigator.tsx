@@ -5,6 +5,7 @@ import { RootStackParamList } from '../types';
 import { Colors } from '../constants/theme';
 import { useAuth } from '../context/AuthContext';
 import { usePushNotifications } from '../hooks/usePushNotifications';
+import { linking } from './linking';
 import { MainTabs } from './MainTabs';
 import { EventDetailScreen } from '../screens/EventDetailScreen';
 import { DJDetailScreen } from '../screens/DJDetailScreen';
@@ -55,7 +56,7 @@ export function RootNavigator() {
   }
 
   return (
-    <NavigationContainer theme={DarkTheme}>
+    <NavigationContainer theme={DarkTheme} linking={linking} fallback={<LoadingScreen />}>
       <PushNotificationHandler />
       <Stack.Navigator
         screenOptions={{

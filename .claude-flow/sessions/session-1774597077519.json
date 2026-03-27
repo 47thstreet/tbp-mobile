@@ -1,0 +1,15 @@
+{
+  "id": "session-1774597077519",
+  "startedAt": "2026-03-27T07:37:57.519Z",
+  "cwd": "/Users/bjcc/ecosystem/tbp-mobile",
+  "context": {},
+  "metrics": {
+    "edits": 30,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "restoredAt": "2026-03-27T07:38:56.059Z",
+  "endedAt": "2026-03-27T07:39:57.342Z",
+  "duration": 119824
+}

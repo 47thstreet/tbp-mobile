@@ -3,6 +3,7 @@
     "name": "TBP Mobile",
     "slug": "tbp-mobile",
     "version": "1.0.0",
+    "scheme": "tbp",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,10 +15,28 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.tbgroup.tbpmobile",
+      "associatedDomains": [
+        "applinks:tbpmobile.com",
+        "applinks:www.tbpmobile.com",
+        "applinks:tbp.group",
+        "appclips:tbpmobile.com"
+      ],
       "infoPlist": {
         "NSCameraUsageDescription": "Used to scan QR codes on tickets",
         "NSCalendarsUsageDescription": "Add events to your calendar",
         "NSLocationWhenInUseUsageDescription": "Find events happening near you"
+      },
+      "appClip": {
+        "bundleIdentifier": "com.tbgroup.tbpmobile.Clip",
+        "associatedDomains": [
+          "applinks:tbpmobile.com",
+          "applinks:tbp.group"
+        ],
+        "entitlements": {
+          "com.apple.developer.parent-application-identifiers": [
+            "$(AppIdentifierPrefix)com.tbgroup.tbpmobile"
+          ]
+        }
       }
     },
     "android": {
@@ -34,6 +53,60 @@
         "WRITE_CALENDAR",
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "tbpmobile.com",
+              "pathPrefix": "/event"
+            },
+            {
+              "scheme": "https",
+              "host": "tbpmobile.com",
+              "pathPrefix": "/dj"
+            },
+            {
+              "scheme": "https",
+              "host": "tbpmobile.com",
+              "pathPrefix": "/tickets"
+            },
+            {
+              "scheme": "https",
+              "host": "tbpmobile.com",
+              "pathPrefix": "/discover"
+            },
+            {
+              "scheme": "https",
+              "host": "tbpmobile.com",
+              "pathPrefix": "/feed"
+            },
+            {
+              "scheme": "https",
+              "host": "www.tbpmobile.com",
+              "pathPrefix": "/event"
+            },
+            {
+              "scheme": "https",
+              "host": "www.tbpmobile.com",
+              "pathPrefix": "/dj"
+            },
+            {
+              "scheme": "https",
+              "host": "tbp.group",
+              "pathPrefix": "/event"
+            },
+            {
+              "scheme": "https",
+              "host": "tbp.group",
+              "pathPrefix": "/dj"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
       ]
     },
     "web": {
@@ -48,7 +121,8 @@
         {
           "locationWhenInUsePermission": "Find events happening near you"
         }
-      ]
+      ],
+      "expo-linking"
     ]
   }
 }

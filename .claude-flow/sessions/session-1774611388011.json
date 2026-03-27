@@ -1,0 +1,24 @@
+{
+  "id": "session-1774611388011",
+  "startedAt": "2026-03-27T11:36:28.011Z",
+  "cwd": "/Users/bjcc/ecosystem/tbp-mobile",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-",
+      "mem-project_tb_strategic_plan-key-strategic-decisions",
+      "mem-project_fb_group_poster-key-architecture",
+      "mem-project_social_identities-6--psychedelic-visualizer----p",
+      "mem-project_tb_strategic_plan-next-actions--priority-order-"
+    ]
+  },
+  "metrics": {
+    "edits": 33,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "restoredAt": "2026-03-27T11:37:02.851Z",
+  "updatedAt": "2026-03-27T14:38:27.129Z",
+  "endedAt": "2026-03-27T14:40:24.368Z",
+  "duration": 11036358
+}

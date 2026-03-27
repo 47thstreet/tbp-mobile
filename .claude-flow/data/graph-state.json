@@ -1,0 +1,559 @@
+{
+  "version": 1,
+  "updatedAt": 1774622498188,
+  "nodeCount": 46,
+  "nodes": {
+    "mem-MEMORY-memory-index": {
+      "id": "mem-MEMORY-memory-index",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542461
+    },
+    "mem-feedback_agent_autonomy----": {
+      "id": "mem-feedback_agent_autonomy----",
+      "category": "feedback_agent_autonomy",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542462
+    },
+    "mem-feedback_batching_swarming----": {
+      "id": "mem-feedback_batching_swarming----",
+      "category": "feedback_batching_swarming",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542462
+    },
+    "mem-feedback_local_deploy_only----": {
+      "id": "mem-feedback_local_deploy_only----",
+      "category": "feedback_local_deploy_only",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542462
+    },
+    "mem-feedback_nvidia_llms----": {
+      "id": "mem-feedback_nvidia_llms----",
+      "category": "feedback_nvidia_llms",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1774596542463
+    },
+    "mem-feedback_production_ready----": {
+      "id": "mem-feedback_production_ready----",
+      "category": "feedback_production_ready",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542463
+    },
+    "mem-project_fb_group_poster----": {
+      "id": "mem-project_fb_group_poster----",
+      "category": "project_fb_group_poster",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542464
+    },
+    "mem-project_fb_group_poster-stack": {
+      "id": "mem-project_fb_group_poster-stack",
+      "category": "project_fb_group_poster",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542467
+    },
+    "mem-project_fb_group_poster-key-architecture": {
+      "id": "mem-project_fb_group_poster-key-architecture",
+      "category": "project_fb_group_poster",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542467
+    },
+    "mem-project_fb_group_poster-api-endpoints": {
+      "id": "mem-project_fb_group_poster-api-endpoints",
+      "category": "project_fb_group_poster",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542467
+    },
+    "mem-project_nightlife_ecosystem----": {
+      "id": "mem-project_nightlife_ecosystem----",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_nightlife_ecosystem-all-properties": {
+      "id": "mem-project_nightlife_ecosystem-all-properties",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-": {
+      "id": "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi": {
+      "id": "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_nightlife_ecosystem-still-needs-manual-steps": {
+      "id": "mem-project_nightlife_ecosystem-still-needs-manual-steps",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_nightlife_ecosystem-key-architecture": {
+      "id": "mem-project_nightlife_ecosystem-key-architecture",
+      "category": "project_nightlife_ecosystem",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_ruflo_agency----": {
+      "id": "mem-project_ruflo_agency----",
+      "category": "project_ruflo_agency",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_ruflo_agency-session-results--2026-03-25-": {
+      "id": "mem-project_ruflo_agency-session-results--2026-03-25-",
+      "category": "project_ruflo_agency",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities----": {
+      "id": "mem-project_social_identities----",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-1--event-promoter----alex-rive": {
+      "id": "mem-project_social_identities-1--event-promoter----alex-rive",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-2--ai-music-producer----synth-": {
+      "id": "mem-project_social_identities-2--ai-music-producer----synth-",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-3--faceless-brand----noctvrnal": {
+      "id": "mem-project_social_identities-3--faceless-brand----noctvrnal",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-4--influencer-persona----mia-n": {
+      "id": "mem-project_social_identities-4--influencer-persona----mia-n",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-5--music-news----bassline----b": {
+      "id": "mem-project_social_identities-5--music-news----bassline----b",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-6--psychedelic-visualizer----p": {
+      "id": "mem-project_social_identities-6--psychedelic-visualizer----p",
+      "category": "project_social_identities",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-cross-promotion-strategy": {
+      "id": "mem-project_social_identities-cross-promotion-strategy",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_social_identities-content-automation-via-tbm": {
+      "id": "mem-project_social_identities-content-automation-via-tbm",
+      "category": "project_social_identities",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542468
+    },
+    "mem-project_tb_strategic_plan----": {
+      "id": "mem-project_tb_strategic_plan----",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-completed-actions--2026-03-25-": {
+      "id": "mem-project_tb_strategic_plan-completed-actions--2026-03-25-",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-next-actions--priority-order-": {
+      "id": "mem-project_tb_strategic_plan-next-actions--priority-order-",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-commission-tiers": {
+      "id": "mem-project_tb_strategic_plan-commission-tiers",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-event-concepts--first-10-": {
+      "id": "mem-project_tb_strategic_plan-event-concepts--first-10-",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-timeline-phases": {
+      "id": "mem-project_tb_strategic_plan-timeline-phases",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-department-structure": {
+      "id": "mem-project_tb_strategic_plan-department-structure",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-project_tb_strategic_plan-key-strategic-decisions": {
+      "id": "mem-project_tb_strategic_plan-key-strategic-decisions",
+      "category": "project_tb_strategic_plan",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-reference_awesome_openclaw_usecases----": {
+      "id": "mem-reference_awesome_openclaw_usecases----",
+      "category": "reference_awesome_openclaw_usecases",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542469
+    },
+    "mem-reference_claude_batch_swarm----": {
+      "id": "mem-reference_claude_batch_swarm----",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542470
+    },
+    "mem-reference_claude_batch_swarm-claude-batch-api": {
+      "id": "mem-reference_claude_batch_swarm-claude-batch-api",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542470
+    },
+    "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv": {
+      "id": "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1774596542470
+    },
+    "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm": {
+      "id": "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1774596542470
+    },
+    "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter": {
+      "id": "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542470
+    },
+    "mem-reference_claude_batch_swarm-best-combo-for-maximum-through": {
+      "id": "mem-reference_claude_batch_swarm-best-combo-for-maximum-through",
+      "category": "reference_claude_batch_swarm",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542470
+    },
+    "mem-MEMORY----project-aionui-md--project-": {
+      "id": "mem-MEMORY----project-aionui-md--project-",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542472
+    },
+    "mem-feedback_cloud_only----": {
+      "id": "mem-feedback_cloud_only----",
+      "category": "feedback_cloud_only",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542473
+    },
+    "mem-project_aionui----": {
+      "id": "mem-project_aionui----",
+      "category": "project_aionui",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596542473
+    },
+    "insight-1774596673199-4vel": {
+      "id": "insight-1774596673199-4vel",
+      "category": "insights",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774596673199
+    }
+  },
+  "edges": [
+    {
+      "sourceId": "mem-project_fb_group_poster----",
+      "targetId": "mem-project_fb_group_poster-stack",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_fb_group_poster-stack",
+      "targetId": "mem-project_fb_group_poster-key-architecture",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_fb_group_poster-key-architecture",
+      "targetId": "mem-project_fb_group_poster-api-endpoints",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_nightlife_ecosystem----",
+      "targetId": "mem-project_nightlife_ecosystem-all-properties",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_nightlife_ecosystem-all-properties",
+      "targetId": "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-",
+      "targetId": "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi",
+      "targetId": "mem-project_nightlife_ecosystem-still-needs-manual-steps",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_nightlife_ecosystem-still-needs-manual-steps",
+      "targetId": "mem-project_nightlife_ecosystem-key-architecture",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_ruflo_agency----",
+      "targetId": "mem-project_ruflo_agency-session-results--2026-03-25-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities----",
+      "targetId": "mem-project_social_identities-1--event-promoter----alex-rive",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-1--event-promoter----alex-rive",
+      "targetId": "mem-project_social_identities-2--ai-music-producer----synth-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-2--ai-music-producer----synth-",
+      "targetId": "mem-project_social_identities-3--faceless-brand----noctvrnal",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-3--faceless-brand----noctvrnal",
+      "targetId": "mem-project_social_identities-4--influencer-persona----mia-n",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-4--influencer-persona----mia-n",
+      "targetId": "mem-project_social_identities-5--music-news----bassline----b",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-5--music-news----bassline----b",
+      "targetId": "mem-project_social_identities-6--psychedelic-visualizer----p",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-6--psychedelic-visualizer----p",
+      "targetId": "mem-project_social_identities-cross-promotion-strategy",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_social_identities-cross-promotion-strategy",
+      "targetId": "mem-project_social_identities-content-automation-via-tbm",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan----",
+      "targetId": "mem-project_tb_strategic_plan-completed-actions--2026-03-25-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-completed-actions--2026-03-25-",
+      "targetId": "mem-project_tb_strategic_plan-next-actions--priority-order-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-next-actions--priority-order-",
+      "targetId": "mem-project_tb_strategic_plan-commission-tiers",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-commission-tiers",
+      "targetId": "mem-project_tb_strategic_plan-event-concepts--first-10-",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-event-concepts--first-10-",
+      "targetId": "mem-project_tb_strategic_plan-timeline-phases",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-timeline-phases",
+      "targetId": "mem-project_tb_strategic_plan-department-structure",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-department-structure",
+      "targetId": "mem-project_tb_strategic_plan-key-strategic-decisions",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-reference_claude_batch_swarm----",
+      "targetId": "mem-reference_claude_batch_swarm-claude-batch-api",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-reference_claude_batch_swarm-claude-batch-api",
+      "targetId": "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv",
+      "targetId": "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm",
+      "targetId": "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter",
+      "targetId": "mem-reference_claude_batch_swarm-best-combo-for-maximum-through",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-project_tb_strategic_plan-timeline-phases",
+      "targetId": "mem-project_tb_strategic_plan-department-structure",
+      "type": "similar",
+      "weight": 0.3235294117647059
+    }
+  ],
+  "pageRanks": {
+    "mem-MEMORY-memory-index": 0.008910974864303707,
+    "mem-feedback_agent_autonomy----": 0.008910974864303707,
+    "mem-feedback_batching_swarming----": 0.008910974864303707,
+    "mem-feedback_local_deploy_only----": 0.008910974864303707,
+    "mem-feedback_nvidia_llms----": 0.008910974864303707,
+    "mem-feedback_production_ready----": 0.008910974864303707,
+    "mem-project_fb_group_poster----": 0.008910974864303707,
+    "mem-project_fb_group_poster-stack": 0.01648530628404029,
+    "mem-project_fb_group_poster-key-architecture": 0.022923494194636088,
+    "mem-project_fb_group_poster-api-endpoints": 0.02839596010336936,
+    "mem-project_nightlife_ecosystem----": 0.008910974864303707,
+    "mem-project_nightlife_ecosystem-all-properties": 0.01648530628404029,
+    "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-": 0.022923494194636088,
+    "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi": 0.02839596010336936,
+    "mem-project_nightlife_ecosystem-still-needs-manual-steps": 0.03304755253740824,
+    "mem-project_nightlife_ecosystem-key-architecture": 0.037001389365429856,
+    "mem-project_ruflo_agency----": 0.008910974864303707,
+    "mem-project_ruflo_agency-session-results--2026-03-25-": 0.01648530628404029,
+    "mem-project_social_identities----": 0.008910974864303707,
+    "mem-project_social_identities-1--event-promoter----alex-rive": 0.01648530628404029,
+    "mem-project_social_identities-2--ai-music-producer----synth-": 0.022923494194636088,
+    "mem-project_social_identities-3--faceless-brand----noctvrnal": 0.02839596010336936,
+    "mem-project_social_identities-4--influencer-persona----mia-n": 0.03304755253740824,
+    "mem-project_social_identities-5--music-news----bassline----b": 0.037001389365429856,
+    "mem-project_social_identities-6--psychedelic-visualizer----p": 0.04036211935369689,
+    "mem-project_social_identities-cross-promotion-strategy": 0.043218718598628726,
+    "mem-project_social_identities-content-automation-via-tbm": 0.04564687459656443,
+    "mem-project_tb_strategic_plan----": 0.008910974864303707,
+    "mem-project_tb_strategic_plan-completed-actions--2026-03-25-": 0.01648530628404029,
+    "mem-project_tb_strategic_plan-next-actions--priority-order-": 0.022923494194636088,
+    "mem-project_tb_strategic_plan-commission-tiers": 0.02839596010336936,
+    "mem-project_tb_strategic_plan-event-concepts--first-10-": 0.03304755253740824,
+    "mem-project_tb_strategic_plan-timeline-phases": 0.037001389365429856,
+    "mem-project_tb_strategic_plan-department-structure": 0.04036211935369689,
+    "mem-project_tb_strategic_plan-key-strategic-decisions": 0.043218718598628726,
+    "mem-reference_awesome_openclaw_usecases----": 0.008910974864303707,
+    "mem-reference_claude_batch_swarm----": 0.008910974864303707,
+    "mem-reference_claude_batch_swarm-claude-batch-api": 0.01648530628404029,
+    "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv": 0.022923494194636088,
+    "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm": 0.02839596010336936,
+    "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter": 0.03304755253740824,
+    "mem-reference_claude_batch_swarm-best-combo-for-maximum-through": 0.037001389365429856,
+    "mem-MEMORY----project-aionui-md--project-": 0.008910974864303707,
+    "mem-feedback_cloud_only----": 0.008910974864303707,
+    "mem-project_aionui----": 0.008910974864303707,
+    "insight-1774596673199-4vel": 0.008910974864303707
+  }
+}

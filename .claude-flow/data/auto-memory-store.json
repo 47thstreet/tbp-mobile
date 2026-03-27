@@ -1,0 +1,601 @@
+[
+  {
+    "id": "mem-MEMORY-memory-index",
+    "key": "memory-index",
+    "content": "- [project_nightlife_ecosystem.md](project_nightlife_ecosystem.md) — TB Group nightlife ecosystem: 8+ properties verified 2026-03-25, build order priorities, Astro+React+Prisma+Stripe stack\n- [project_tb_strategic_plan.md](project_tb_strategic_plan.md) — TB Group strategic plan: 7 next actions, 8 departments, commission tiers, 10 event concepts, 30/90/180 day milestones\n- [project_fb_group_poster.md](project_fb_group_poster.md) — Facebook groups automation tool: Express+React+Puppeteer, posts to",
+    "summary": "Memory Index",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542461
+  },
+  {
+    "id": "mem-feedback_agent_autonomy----",
+    "key": "-",
+    "content": "name: agent_autonomy_expectations\ndescription: Agents should be domain experts who proactively know what to build. User shouldn't have to bring tasks — the AI agency runs the real company.\ntype: feedback\n---\n\nAgents are experts running TB Group as an AI agency operating a real nightlife company. They should KNOW what needs to be done without being told every detail.\n\n**Why:** The user runs a real business. The agent swarm IS the company's engineering/marketing/ops team. They should think like ni",
+    "summary": "---",
+    "namespace": "feedback_agent_autonomy",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/feedback_agent_autonomy.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542462
+  },
+  {
+    "id": "mem-feedback_batching_swarming----",
+    "key": "-",
+    "content": "name: batching_swarming\ndescription: User wants agents batched and swarmed — spawn max parallel agents in single messages, never sequential when possible\ntype: feedback\n---\n\nAlways batch agent spawns — launch ALL independent agents in ONE message with multiple tool calls.\nAlways swarm — when a task can be split into independent pieces, split it across as many parallel agents as possible.\n\n**Why:** The user builds fast and expects maximum parallelization. Sequential agent calls waste time. The wh",
+    "summary": "---",
+    "namespace": "feedback_batching_swarming",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/feedback_batching_swarming.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542462
+  },
+  {
+    "id": "mem-feedback_local_deploy_only----",
+    "key": "-",
+    "content": "name: local_deploy_only\ndescription: All projects and websites must deploy locally only — no Vercel, Render, or any remote deploys until user explicitly says otherwise\ntype: feedback\n---\n\nAll projects deploy LOCAL ONLY. No Vercel, Render, Fly.io, or any remote deployment until explicitly told otherwise.\n\n**Why:** User directive as of 2026-03-26. Applies to all projects — ecosystem sites, agent hub, ruflo, everything.\n\n**How to apply:** When running or testing any project, use `localhost` / `dev`",
+    "summary": "---",
+    "namespace": "feedback_local_deploy_only",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/feedback_local_deploy_only.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542462
+  },
+  {
+    "id": "mem-feedback_nvidia_llms----",
+    "key": "-",
+    "content": "name: nvidia_llms_priority\ndescription: Use NVIDIA NIM LLMs (Llama 3.3 70B, Nemotron) for task routing whenever possible to save Claude tokens\ntype: feedback\n---\n\nUse NVIDIA NIM models for agent tasks whenever possible. API key is configured in claude-flow config.\n\n**Why:** User wants to maximize NVIDIA compute and minimize Claude token usage. NVIDIA API key is active and tested (Llama 3.3 70B confirmed working 2026-03-26).\n\n**How to apply:** Route Tier 2 tasks (simple code gen, research, summar",
+    "summary": "---",
+    "namespace": "feedback_nvidia_llms",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/feedback_nvidia_llms.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542463
+  },
+  {
+    "id": "mem-feedback_production_ready----",
+    "key": "-",
+    "content": "name: production_ready_priority\ndescription: All platforms must be production-ready ASAP. Build mobile apps (iPhone first, Android second). Cover every feature, page, nook and cranny.\ntype: feedback\n---\n\nAll platforms must be ready to use in real life very soon. Every feature, page, and edge case must be covered.\n\n**Why:** User needs production-ready apps, not just dev prototypes. Mobile apps needed — iPhone first (user has iPhone), then Android. Build from ground up thinking about both platform",
+    "summary": "---",
+    "namespace": "feedback_production_ready",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/feedback_production_ready.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542463
+  },
+  {
+    "id": "mem-project_fb_group_poster----",
+    "key": "-",
+    "content": "name: fb_group_poster\ndescription: Facebook groups automation tool — standalone Express+React app for posting to 50+ groups at scale via Puppeteer, deployed on Render\ntype: project\n---\n\nStandalone Facebook groups automation tool at ~/ecosystem/fb-group-poster. GitHub: 47thstreet/fb-group-poster (private).\n\n**Why:** Event promotion + content marketing — post to 50+ Facebook groups at scale. Built as standalone product with future Kartis integration path.\n\n**How to apply:** All-in-one Render deplo",
+    "summary": "---",
+    "namespace": "project_fb_group_poster",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_fb_group_poster.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542464
+  },
+  {
+    "id": "mem-project_fb_group_poster-stack",
+    "key": "stack",
+    "content": "- Node.js 20 + Express + TypeScript\n- React 18 + Vite + Tailwind CSS (dark mode)\n- PostgreSQL (Prisma v7 with driver adapter) + Redis (BullMQ)\n- Puppeteer (browser automation, anti-detection)\n- AI Gateway (post variation generation)\n- S3-compatible storage (media uploads)\n- Docker + Render deployment",
+    "summary": "Stack",
+    "namespace": "project_fb_group_poster",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_fb_group_poster.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542467
+  },
+  {
+    "id": "mem-project_fb_group_poster-key-architecture",
+    "key": "key-architecture",
+    "content": "- Prisma v7 requires PrismaPg driver adapter (see server/lib/prisma.ts)\n- Post worker: concurrency 3, account rotation, circuit breaker (50% failure auto-pause)\n- Maintenance worker: daily counter reset, session health checks, recurring campaign checks\n- Anti-detection: randomized delays, human-like typing, fingerprint randomization, proxy support\n- Multi-account support with round-robin rotation and cooldowns\n- 3 content modes: manual, templates with {{variables}}, AI-generated variations\n- 3 s",
+    "summary": "Key Architecture",
+    "namespace": "project_fb_group_poster",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_fb_group_poster.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542467
+  },
+  {
+    "id": "mem-project_fb_group_poster-api-endpoints",
+    "key": "api-endpoints",
+    "content": "Auth, clients, accounts (with Puppeteer login flow), groups (with bulk import), campaigns (with launch/pause/resume/cancel), posts, templates, content (AI variations + media upload), dashboard stats, settings",
+    "summary": "API Endpoints",
+    "namespace": "project_fb_group_poster",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_fb_group_poster.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542467
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem----",
+    "key": "-",
+    "content": "name: nightlife_ecosystem\ndescription: TB Group nightlife ecosystem — 13 properties, 38+ agents spawned in single session 2026-03-25, comprehensive feature buildout across all master plan phases\ntype: project\n---\n\nNightlife ecosystem under GitHub user 47thstreet and Vercel team classemediagroup-5179s-projects.\n\n**Why:** Building the #1 party promotion company — TB Group as umbrella, with TBP (brand/demand), Kartis (ticketing/ops), TBM (marketing OS), Future Productions (management), FTRL (DJ min",
+    "summary": "---",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem-all-properties",
+    "key": "all-properties",
+    "content": "| Property | URL | Status |\n|----------|-----|--------|\n| TBP | tbp-website-astro.vercel.app | Live — all CTAs→Kartis, SEO/OG, promoter tracking |\n| Kartis | kartis-astro.vercel.app/en | Live — full ticketing OS with 30+ APIs |\n| TB Group | tb-group.vercel.app | Live (100%) |\n| TBPL | tbpl.vercel.app | Live — dashboard, auth, apply form |\n| TBM | tbm.vercel.app | Live — 6 modules complete |\n| Israeli Day | israeli-day.vercel.app | Live — Kartis CTAs, birthdays, gallery |\n| FTRL | ftrl-dj.vercel.",
+    "summary": "All Properties",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem-master-plan-progress--2026-03-",
+    "key": "master-plan-progress-2026-03-25-session-38-agents-",
+    "content": "### Revenue Layer — DONE\n- All ticket CTAs → Kartis (TBP, Israeli Day, Remote Island)\n- Zero external ticketing links\n- Promoter /p/[code] tracking redirect\n- Customer-facing table picker (Konva, mobile pinch-zoom)\n- QR code images in ticket confirmation emails\n- CSV order export with promoter attribution\n- Analytics dashboard (revenue, orders, promoters, check-ins)\n- Multi-currency (USD/ILS) verified + Tel Aviv seed event\n- Waitlist system for sold-out tickets\n- Refund management with Stripe AP",
+    "summary": "Master Plan Progress (2026-03-25 session — 38 agents, 8 waves)",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem-deploy-queue--vercel-rate-limi",
+    "key": "deploy-queue-vercel-rate-limit-hit-redeploy-when-r",
+    "content": "```bash\ncd ~/ecosystem/kartis-astro/src && npx vercel --prod\ncd ~/ecosystem/tbm/src && npx vercel --prod\ncd ~/ecosystem/ftrl-dj/src && npx vercel --prod\ncd ~/ecosystem/remote-island/src && npx vercel --prod\ncd ~/ecosystem/future-productions/src && npx vercel --prod\ncd ~/ecosystem/tbp-website-astro/src && npx vercel --prod\ncd ~/ecosystem/israeli-day && npx vercel --prod\n```",
+    "summary": "Deploy Queue (Vercel rate limit hit — redeploy when resets)",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem-still-needs-manual-steps",
+    "key": "still-needs-manual-steps",
+    "content": "- Run Kartis seed scripts: `cd ~/ecosystem/kartis-astro/src && npx tsx prisma/seed-events.ts && npx tsx prisma/seed-promoters.ts && npx tsx prisma/seed-cms.ts`\n- Set KARTIS_WEBHOOK_SECRET on TBM + WBpro Vercel/Render env vars\n- Test Stripe checkout end-to-end\n- Test promoter tracking: tbp-website-astro.vercel.app/p/DANNY25",
+    "summary": "Still Needs Manual Steps",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_nightlife_ecosystem-key-architecture",
+    "key": "key-architecture",
+    "content": "- Kartis + FTRL share Prisma schema (PostgreSQL)\n- Kartis: 30+ API routes, Stripe, QR, Pusher, Nodemailer, Sentry, i18n (EN/HE)\n- WBpro: Render (persistent disk for WhatsApp session)\n- whatsapp-fly: 99% duplicate of WBpro (can archive)\n- Israeli Day: Next.js 16 (only non-Astro site)\n- FB Group Poster: BullMQ + Redis + Puppeteer (Docker)",
+    "summary": "Key Architecture",
+    "namespace": "project_nightlife_ecosystem",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_nightlife_ecosystem.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_ruflo_agency----",
+    "key": "-",
+    "content": "name: ruflo_agency_setup\ndescription: Ruflo v3.5.43 installed and configured as agency orchestration platform for TB Group ecosystem — daemon running, memory initialized, 99 agents available\ntype: project\n---\n\nRuflo (AI agent orchestration) installed globally 2026-03-25. MCP server connected to Claude Code.\n\n**Why:** Coordinate parallel development across 8+ TB Group ecosystem projects using multi-agent swarms.\n\n**How to apply:** Ruflo daemon and memory are initialized at ~/.claude-flow/. Config",
+    "summary": "---",
+    "namespace": "project_ruflo_agency",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_ruflo_agency.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_ruflo_agency-session-results--2026-03-25-",
+    "key": "session-results-2026-03-25-",
+    "content": "### Audit Phase (4 parallel agents)\n- TBP, Kartis, Marketing stack, Talent/Brand all audited simultaneously\n- Kartis was 95% built (major surprise) — Stripe, QR, auth, commissions all working\n- WBpro already had Kartis events integration\n- TBM was empty scaffold\n- whatsapp-fly = duplicate of WBpro (kill it)\n- whatsapp-broadcast = dead fork (kill it)\n\n### Build Phase (8 parallel agents)\nAll completed successfully:\n1. TBP: AdminClient fix, Vercel Analytics, .env.example\n2. Kartis: promoter attribu",
+    "summary": "Session Results (2026-03-25)",
+    "namespace": "project_ruflo_agency",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_ruflo_agency.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities----",
+    "key": "-",
+    "content": "name: social_media_identities\ndescription: 5 social media personas for TB Group authority building — promoter, AI producer, faceless brand, influencer persona, music news account\ntype: project\n---\n\n5 social media identities for building authority and massive following in the nightlife/electronic music scene. Targeting Gen Z and millennials. High engagement is the goal — become the go-to accounts in the space.\n\n**Why:** Own the attention layer. TBP sells tickets, but these accounts BUILD the audi",
+    "summary": "---",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-1--event-promoter----alex-rive",
+    "key": "1-event-promoter-alex-rivera-alexriveranyc-",
+    "content": "- **Type:** Real promoter persona\n- **Angle:** NYC nightlife insider. Behind-the-scenes at the best parties. \"I get you in.\"\n- **Platforms:** Instagram, TikTok, WhatsApp broadcast\n- **Content:** Event teasers (15s hype clips), crowd POV videos, VIP table tours, \"what to wear\" guides, ticket giveaways, day-in-the-life of a promoter\n- **Growth strategy:** Collab with venue accounts, tag artists/DJs, location-based hashtags, WhatsApp broadcast lists for exclusive early access\n- **Monetization:** Pr",
+    "summary": "1. Event Promoter — \"Alex Rivera\" (@alexriveranyc)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-2--ai-music-producer----synth-",
+    "key": "2-ai-music-producer-synth-ai-synth-ai-music-",
+    "content": "- **Type:** Experimental/documentary\n- **Angle:** The world's first fully transparent AI music producer. Every track made with Suno/Udio. Documents the entire process — no secrets.\n- **Platforms:** TikTok, YouTube Shorts, Instagram Reels, SoundCloud, Spotify\n- **Content:** \"Watch me make a track in 60 seconds\" process videos, AI vs human blind tests, genre experiments (make reggaeton with AI, make drill with AI), reaction to own AI music, studio vlogs, release day content\n- **Growth strategy:** ",
+    "summary": "2. AI Music Producer — \"SYNTH.AI\" (@synth.ai.music)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-3--faceless-brand----noctvrnal",
+    "key": "3-faceless-brand-noctvrnal-noctvrnal-",
+    "content": "- **Type:** Faceless aesthetic/mood account\n- **Angle:** The visual identity of nightlife. No face, no voice — just pure aesthetic. Dark, cinematic, aspirational. Think Berghain meets NYC rooftops.\n- **Platforms:** Instagram (grid aesthetic), TikTok (mood edits), Pinterest (mood boards)\n- **Content:** Cinematic night city edits (shot on iPhone, graded dark), DJ booth POVs with no talking, crowd energy slow-mo, \"the vibe\" compilations, aesthetic quotes overlaid on nightlife footage, venue reveals",
+    "summary": "3. Faceless Brand — \"NOCTVRNAL\" (@noctvrnal)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-4--influencer-persona----mia-n",
+    "key": "4-influencer-persona-mia-noir-mia-noir-nyc-",
+    "content": "- **Type:** Real-looking persona (AI-generated or model)\n- **Angle:** NYC party girl who's always at the best events. Aspirational lifestyle. \"She's everywhere.\"\n- **Platforms:** Instagram (primary), TikTok, YouTube Shorts\n- **Content framework (high-engagement formula):**\n  - GRWM (Get Ready With Me) for events — outfit reveal, makeup, pregame\n  - \"Come party with me\" vlogs — first-person event coverage\n  - \"Rating NYC clubs\" series — honest reviews with scores\n  - \"Things you NEED to know befo",
+    "summary": "4. Influencer Persona — \"Mia Noir\" (@mia.noir.nyc)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-5--music-news----bassline----b",
+    "key": "5-music-news-bassline-bassline-daily-",
+    "content": "- **Type:** Industry news/curator account\n- **Angle:** The CNN of house, techno, and EDM. First to report, best analysis, hottest takes.\n- **Platforms:** Instagram, TikTok, X/Twitter, YouTube\n- **Content:**\n  - Breaking news graphics (new releases, festival lineups, DJ drama)\n  - \"Track of the Day\" — 30s clip + review\n  - Weekly \"Top 10\" countdown videos\n  - Interview clips with DJs (even if fan-made compilation)\n  - Festival coverage recaps\n  - \"This Day in Dance Music History\"\n  - Meme content",
+    "summary": "5. Music News — \"BASSLINE\" (@bassline.daily)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-6--psychedelic-visualizer----p",
+    "key": "6-psychedelic-visualizer-psychedelica-psychedelica",
+    "content": "- **Type:** AI music + AI visuals content factory\n- **Angle:** Trippy audio-reactive visualizations synced to house, techno, EDM, and psytrance. AI-generated music (Suno) meets AI-generated visuals (Deforum, TouchDesigner, RunwayML). Occasionally features real songs added by the team.\n- **Platforms:** Instagram Reels, TikTok (primary), YouTube (long-form visual trips)\n- **Content:**\n  - 15-60s psychedelic visualizations synced to drops/beats\n  - \"Trip Report\" series — full track visual journeys ",
+    "summary": "6. Psychedelic Visualizer — \"PSYCHEDELICA\" (@psychedelica.wav)",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-cross-promotion-strategy",
+    "key": "cross-promotion-strategy",
+    "content": "- NOCTVRNAL films the events → Mia Noir is IN the content → Alex Rivera promoted the event → SYNTH.AI played the set → BASSLINE reports on it\n- All 5 accounts mention each other naturally\n- All ticket links go through Kartis with tracked promo codes\n- TBM automates cross-posting across all accounts\n- Content calendar synced to Kartis event schedule",
+    "summary": "Cross-Promotion Strategy",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_social_identities-content-automation-via-tbm",
+    "key": "content-automation-via-tbm",
+    "content": "- Auto-generate event teasers for all 5 accounts (different angles per persona)\n- Schedule posts around event lifecycle: announce → hype → day-of → recap\n- AI content generation for BASSLINE news posts and SYNTH.AI track announcements\n- WhatsApp broadcast for Alex Rivera's exclusive lists",
+    "summary": "Content Automation via TBM",
+    "namespace": "project_social_identities",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_social_identities.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542468
+  },
+  {
+    "id": "mem-project_tb_strategic_plan----",
+    "key": "-",
+    "content": "name: tb_strategic_plan\ndescription: TB Group strategic plan — departments, build order, 7 next actions, 30/90/180 day milestones, 10 event concepts, promoter commission tiers\ntype: project\n---\n\nStrategic plan finalized 2026-03-25 for the TB Group nightlife ecosystem.\n\n**Why:** Close the loop from attention to conversion — TBP drives demand, Kartis processes sales, TBM automates outreach. Own end-to-end flow instead of relying on external ticketing (VibeStub/Posh).\n\n**How to apply:** Every code ",
+    "summary": "---",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-completed-actions--2026-03-25-",
+    "key": "completed-actions-2026-03-25-",
+    "content": "- ✅ TBP /admin fixed — always redirects to Kartis CMS\n- ✅ TB Group, TBPL, TBM — scaffolded, deployed to Vercel, pushed to GitHub\n- ✅ Kartis promoter public site API (`/api/promoter/public-site?slug=xxx`)\n- ✅ Kartis click-tracking redirect (`/p/[code]` → event page with ref)\n- ✅ Israeli Day Kartis integration layer (`lib/kartis.ts`)\n- ✅ Real event seeder (`prisma/seed-real-events.ts`) — reads TBP events into Kartis",
+    "summary": "Completed Actions (2026-03-25)",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-next-actions--priority-order-",
+    "key": "next-actions-priority-order-",
+    "content": "1. **Run seed** — `vercel env pull --environment production` then `npx tsx prisma/seed-real-events.ts`\n2. **Verify Stripe checkout** end-to-end with seeded event\n3. **Test QR check-in** with StaffCheckin page\n4. **Build promoter onboarding form** on TBPL /apply\n5. **Wire Israeli Day pages** to use lib/kartis.ts (need API route for client components)\n6. **Build Kartis webhook system** for TBM auto-campaigns\n7. **Connect TBP subscribe** to Resend email",
+    "summary": "Next Actions (Priority Order)",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-commission-tiers",
+    "key": "commission-tiers",
+    "content": "- Tickets: 20% / 30% (tiered by performance)\n- Tables: 7% / 12% (tiered by performance)",
+    "summary": "Commission Tiers",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-event-concepts--first-10-",
+    "key": "event-concepts-first-10-",
+    "content": "- NYC: Israeli Thursdays, Rooftop Revelry, After Hours Xclusive, Birthday Bash, RSVP Recharge\n- MIA: Poolside Fiesta, River Nights, Elegant Chaos, MIA Pass, Underground Beats",
+    "summary": "Event Concepts (First 10)",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-timeline-phases",
+    "key": "timeline-phases",
+    "content": "- Month 1 (Core Setup): TBP fixes, Kartis event MVP, checkout+QR, short-form content ramp\n- Month 2-3 (Growth Flywheel): Promoter links+commissions, marketing OS rollout\n- Month 4-6 (Scale & Polish): Table maps, multi-currency, full automation",
+    "summary": "Timeline Phases",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-department-structure",
+    "key": "department-structure",
+    "content": "8 departments: Growth, Events, Product/Kartis, Marketing Automation, Partnerships, Promoter Ops, Revenue Ops, Short-Form Content",
+    "summary": "Department Structure",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-project_tb_strategic_plan-key-strategic-decisions",
+    "key": "key-strategic-decisions",
+    "content": "- TBP owns audience growth, event brands, promoters, content\n- Kartis owns events, ticket sales, table mgmt, promoter attribution, check-in\n- Future Productions/FTRL delivers DJ profiles and media\n- Remote Island is the design quality benchmark\n- TBM is the marketing engine (starting with WhatsApp, expanding to FB groups, SMS/RCS, email, content gen, social mgr)\n- TB Group is the parent umbrella above all properties",
+    "summary": "Key Strategic Decisions",
+    "namespace": "project_tb_strategic_plan",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/project_tb_strategic_plan.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-reference_awesome_openclaw_usecases----",
+    "key": "-",
+    "content": "name: awesome-openclaw-usecases repo\ndescription: Cloned repo at ~/awesome-openclaw-usecases with 42 community OpenClaw use cases covering social media, productivity, devops, research, finance, and creative workflows\ntype: reference\n---\n\nRepo: ~/awesome-openclaw-usecases (cloned from https://github.com/hesamsheikh/awesome-openclaw-usecases)\n\n42 use cases across 6 categories:\n\n**Social Media:** Daily Reddit Digest, Daily YouTube Digest, X Account Analysis, Multi-Source Tech News Digest (109+ sour",
+    "summary": "---",
+    "namespace": "reference_awesome_openclaw_usecases",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_awesome_openclaw_usecases.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542469
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm----",
+    "key": "-",
+    "content": "name: claude_batch_swarm\ndescription: How to use Claude Batch API (50% cheaper), Agent Teams (multi-agent swarms), and claude-batch-toolkit MCP\ntype: reference\n---",
+    "summary": "---",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm-claude-batch-api",
+    "key": "claude-batch-api",
+    "content": "- **URL**: `POST https://api.anthropic.com/v1/messages/batches`\n- **50% cheaper** than standard API calls\n- Up to **10,000 requests per batch**\n- Processed within **24 hours** (usually 30min-1hr)\n- Results available for 29 days\n- Requires `ANTHROPIC_API_KEY`\n\n### Usage:\n```bash\ncurl https://api.anthropic.com/v1/messages/batches \\\n  -H \"x-api-key: $ANTHROPIC_API_KEY\" \\\n  -H \"content-type: application/json\" \\\n  -d '{\"requests\":[{\"custom_id\":\"req-1\",\"params\":{\"model\":\"claude-sonnet-4-20250514\",\"max",
+    "summary": "Claude Batch API",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm-claude-batch-toolkit--mcp-serv",
+    "key": "claude-batch-toolkit-mcp-server-",
+    "content": "- **Repo**: https://github.com/s2-streamstore/claude-batch-toolkit\n- Install: `git clone ... && ./install.sh --api-key sk-ant-...`\n- Adds `send_to_batch` tool to Claude Code\n- Send non-urgent work at 50% cost directly from this CLI\n- Supports Anthropic API and Google Vertex backends",
+    "summary": "Claude Batch Toolkit (MCP Server)",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm",
+    "key": "claude-code-agent-teams-swarm-mode-",
+    "content": "- **Enable**: `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` in settings.json\n- Already enabled in this session\n- **How it works**: One lead session + multiple teammate sessions\n- Teammates have their own context windows, communicate via shared task list and mailbox\n- **Best for**: 3-5 teammates, 5-6 tasks per teammate\n- **Commands**: Tell Claude to \"create an agent team\" in natural language\n- **Display modes**: in-process (default) or split panes (tmux/iTerm2)\n- Uses **~7x tokens** of a single sessio",
+    "summary": "Claude Code Agent Teams (Swarm Mode)",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm-claude-code-multi-agent-patter",
+    "key": "claude-code-multi-agent-patterns",
+    "content": "1. **Subagents** (Agent tool) — quick, focused, report back. What we've been using.\n2. **Agent Teams** — full sessions that talk to each other. New experimental.\n3. **Git Worktrees** — manual parallel sessions on different branches.\n4. **Batch API via MCP** — 50% cheaper for non-urgent work.",
+    "summary": "Claude Code Multi-Agent Patterns",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-reference_claude_batch_swarm-best-combo-for-maximum-through",
+    "key": "best-combo-for-maximum-throughput-",
+    "content": "- Use **subagents** for quick parallel tasks (what we do now)\n- Use **agent teams** for complex multi-step coordination\n- Use **batch API** for bulk non-urgent processing (e.g., reviewing 100 files)",
+    "summary": "Best combo for maximum throughput:",
+    "namespace": "reference_claude_batch_swarm",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc/memory/reference_claude_batch_swarm.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542470
+  },
+  {
+    "id": "mem-MEMORY----project-aionui-md--project-",
+    "key": "-project-aionui-md-project-aionui-md-aionui-deskto",
+    "content": "- [feedback_cloud_only.md](feedback_cloud_only.md) - Use cloud models only during active development, no local Ollama",
+    "summary": "- [project_aionui.md](project_aionui.md) - AionUi desktop AI cowork app setup, build, and installation details",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc-Desktop-x4144/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542472
+  },
+  {
+    "id": "mem-feedback_cloud_only----",
+    "key": "-",
+    "content": "name: cloud-only-during-build\ndescription: Use only cloud/API models during active development, not local Ollama models\ntype: feedback\n---\n\nUse only cloud-based models (not local Ollama) while actively building the project.\n\n**Why:** Local models like gemma3:27b consume ~22 GB RAM, which competes with development tools and builds.\n\n**How to apply:** Don't suggest or start local Ollama models during development sessions. If Ollama is consuming resources, offer to unload immediately.",
+    "summary": "---",
+    "namespace": "feedback_cloud_only",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc-Desktop-x4144/memory/feedback_cloud_only.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542473
+  },
+  {
+    "id": "mem-project_aionui----",
+    "key": "-",
+    "content": "name: AionUi project setup\ndescription: AionUi desktop AI cowork app - cloned, built, and installed on this Mac. Electron+TypeScript+React app with multi-agent support.\ntype: project\n---\n\nAionUi v1.8.31 cloned to /Users/bjcc/Desktop/x4144/AionUi and built/installed on 2026-03-20.\n\n**Why:** User wanted to learn the codebase and install the app locally.\n\n**How to apply:**\n- App installed at /Applications/AionUi.app (built from source, arm64)\n- DMG at /Users/bjcc/Desktop/x4144/AionUi/out/AionUi-1.8",
+    "summary": "---",
+    "namespace": "project_aionui",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/bjcc/.claude/projects/-Users-bjcc-Desktop-x4144/memory/project_aionui.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774596542473
+  },
+  {
+    "id": "insight-1774596673199-4vel",
+    "key": "frequent-edit-unknown",
+    "content": "File unknown was edited 236 times this session — likely a hot path worth monitoring.",
+    "summary": "Frequently edited: unknown (236x)",
+    "namespace": "insights",
+    "type": "procedural",
+    "metadata": {
+      "sourceFile": "unknown",
+      "editCount": 236,
+      "autoGenerated": true
+    },
+    "createdAt": 1774596673199
+  }
+]

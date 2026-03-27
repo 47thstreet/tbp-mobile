@@ -1,0 +1,23 @@
+{
+  "id": "session-1774596542457",
+  "startedAt": "2026-03-27T07:29:02.457Z",
+  "cwd": "/Users/bjcc/ecosystem/tbp-mobile",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-feedback_nvidia_llms----",
+      "mem-reference_claude_batch_swarm-claude-code-agent-teams--swarm",
+      "mem-project_ruflo_agency-session-results--2026-03-25-",
+      "mem-reference_claude_batch_swarm-best-combo-for-maximum-through",
+      "mem-project_social_identities-6--psychedelic-visualizer----p"
+    ]
+  },
+  "metrics": {
+    "edits": 33,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-03-27T07:29:36.453Z",
+  "endedAt": "2026-03-27T07:31:13.211Z",
+  "duration": 130755
+}

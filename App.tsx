@@ -12,7 +12,7 @@ export default function App() {
     <SafeAreaProvider>
       <StripeProvider
         publishableKey={STRIPE_PUBLISHABLE_KEY}
-        urlScheme="tbp-mobile"
+        urlScheme="tbp"
       >
         <AuthProvider>
           <StatusBar style="light" />
