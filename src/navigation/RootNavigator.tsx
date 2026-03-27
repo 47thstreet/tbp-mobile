@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
@@ -6,6 +6,9 @@ import { Colors } from '../constants/theme';
 import { MainTabs } from './MainTabs';
 import { EventDetailScreen } from '../screens/EventDetailScreen';
 import { DJDetailScreen } from '../screens/DJDetailScreen';
+import { FullScreenTicketScreen } from '../screens/FullScreenTicketScreen';
+import { OnboardingScreen, hasCompletedOnboarding } from '../screens/OnboardingScreen';
+import { LoadingScreen } from '../components/LoadingScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -24,6 +27,20 @@ const DarkTheme = {
 };
 
 export function RootNavigator() {
+  const [showOnboarding, setShowOnboarding] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    hasCompletedOnboarding().then((done) => setShowOnboarding(!done));
+  }, []);
+
+  if (showOnboarding === null) return <LoadingScreen />;
+
+  if (showOnboarding) {
+    return (
+      <OnboardingScreen onComplete={() => setShowOnboarding(false)} />
+    );
+  }
+
   return (
     <NavigationContainer theme={DarkTheme}>
       <Stack.Navigator
@@ -49,6 +66,15 @@ export function RootNavigator() {
           name="DJDetail"
           component={DJDetailScreen}
           options={{ title: 'DJ', headerTransparent: true, headerTitle: '' }}
+        />
+        <Stack.Screen
+          name="FullScreenTicket"
+          component={FullScreenTicketScreen}
+          options={{
+            headerShown: false,
+            presentation: 'fullScreenModal',
+            animation: 'slide_from_bottom',
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

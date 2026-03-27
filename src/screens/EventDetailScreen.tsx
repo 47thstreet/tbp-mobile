@@ -18,6 +18,9 @@ import { API_BASE_URL } from '../constants/api';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
 import { LoadingScreen } from '../components/LoadingScreen';
+import { ShareEventButton } from '../components/ShareEventButton';
+import { AddToCalendarButton } from '../components/AddToCalendarButton';
+import { scheduleEventReminder } from '../services/notifications';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'EventDetail'>;
 
@@ -48,6 +51,13 @@ export function EventDetailScreen({ route, navigation }: Props) {
     const url = `${API_BASE_URL}/events/${eventId}/checkout?ticket=${ticketTypeId}`;
     await WebBrowser.openBrowserAsync(url);
   };
+
+  useEffect(() => {
+    if (event) {
+      const eventDate = new Date(`${event.date}T${event.time || '20:00'}`);
+      scheduleEventReminder(event.id, event.title, eventDate, event.venue).catch(() => {});
+    }
+  }, [event]);
 
   if (loading || !event) return <LoadingScreen />;
 
@@ -134,6 +144,15 @@ export function EventDetailScreen({ route, navigation }: Props) {
             </View>
           </View>
         ) : null}
+
+        <View style={styles.actionButtons}>
+          <View style={{ flex: 1 }}>
+            <ShareEventButton event={event} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <AddToCalendarButton event={event} />
+          </View>
+        </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Tickets</Text>
@@ -236,6 +255,11 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: Colors.border,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    gap: Spacing.sm,
+    marginBottom: Spacing.lg,
   },
   section: {
     marginBottom: Spacing.lg,

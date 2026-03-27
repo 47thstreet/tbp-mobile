@@ -16,6 +16,7 @@ import { api } from '../services/api';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { EventCard } from '../components/EventCard';
 import { LoadingScreen } from '../components/LoadingScreen';
+import { DateFilterChips, DateFilter, filterByDate } from '../components/DateFilterChips';
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList>;
@@ -27,6 +28,7 @@ export function HomeScreen({ navigation }: Props) {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [search, setSearch] = useState('');
+  const [dateFilter, setDateFilter] = useState<DateFilter>('all');
 
   const fetchEvents = useCallback(async () => {
     try {
@@ -35,10 +37,8 @@ export function HomeScreen({ navigation }: Props) {
         (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
       );
       setEvents(sorted);
-      setFiltered(sorted);
     } catch {
       setEvents([]);
-      setFiltered([]);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -50,20 +50,18 @@ export function HomeScreen({ navigation }: Props) {
   }, [fetchEvents]);
 
   useEffect(() => {
-    if (!search.trim()) {
-      setFiltered(events);
-      return;
-    }
-    const q = search.toLowerCase();
-    setFiltered(
-      events.filter(
+    let result = filterByDate(events, dateFilter);
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      result = result.filter(
         (e) =>
           e.title.toLowerCase().includes(q) ||
           e.venue.toLowerCase().includes(q) ||
-          e.tags?.some((t) => t.toLowerCase().includes(q))
-      )
-    );
-  }, [search, events]);
+          e.tags?.some((t: string) => t.toLowerCase().includes(q))
+      );
+    }
+    setFiltered(result);
+  }, [search, events, dateFilter]);
 
   const onRefresh = () => {
     setRefreshing(true);
@@ -71,6 +69,8 @@ export function HomeScreen({ navigation }: Props) {
   };
 
   if (loading) return <LoadingScreen />;
+
+  const liveEvents = events.filter((e) => e.status === 'live');
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -95,6 +95,8 @@ export function HomeScreen({ navigation }: Props) {
         )}
       </View>
 
+      <DateFilterChips active={dateFilter} onChange={setDateFilter} />
+
       <FlatList
         data={filtered}
         keyExtractor={(item) => item.id}
@@ -113,10 +115,30 @@ export function HomeScreen({ navigation }: Props) {
             tintColor={Colors.primary}
           />
         }
+        ListHeaderComponent={
+          liveEvents.length > 0 ? (
+            <View style={styles.liveSection}>
+              <View style={styles.liveSectionHeader}>
+                <View style={styles.liveDot} />
+                <Text style={styles.liveSectionTitle}>Happening Now</Text>
+              </View>
+              {liveEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  onPress={() => navigation.navigate('EventDetail', { eventId: event.id })}
+                />
+              ))}
+              <View style={styles.sectionDivider} />
+            </View>
+          ) : null
+        }
         ListEmptyComponent={
           <View style={styles.empty}>
             <Ionicons name="calendar-outline" size={48} color={Colors.textMuted} />
-            <Text style={styles.emptyText}>No upcoming events</Text>
+            <Text style={styles.emptyText}>
+              {dateFilter === 'all' ? 'No upcoming events' : `No events ${dateFilter === 'tonight' ? 'tonight' : dateFilter === 'weekend' ? 'this weekend' : 'this week'}`}
+            </Text>
           </View>
         }
       />
@@ -168,6 +190,31 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: Spacing.md,
+  },
+  liveSection: {
+    marginBottom: Spacing.md,
+  },
+  liveSectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    marginBottom: Spacing.md,
+  },
+  liveDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.error,
+  },
+  liveSectionTitle: {
+    color: Colors.text,
+    fontSize: FontSize.lg,
+    fontWeight: '700',
+  },
+  sectionDivider: {
+    height: 1,
+    backgroundColor: Colors.border,
+    marginVertical: Spacing.lg,
   },
   empty: {
     alignItems: 'center',

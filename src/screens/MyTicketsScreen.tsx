@@ -8,9 +8,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import SvgQRCode from 'react-native-qrcode-svg';
-import { Ticket } from '../types';
+import { Ticket, RootStackParamList } from '../types';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
@@ -18,6 +20,7 @@ import { GlassCard } from '../components/GlassCard';
 import { LoadingScreen } from '../components/LoadingScreen';
 
 export function MyTicketsScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { isAuthenticated } = useAuth();
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState(true);
@@ -119,15 +122,27 @@ export function MyTicketsScreen() {
 
               {expandedId === item.id && item.qrCode && (
                 <View style={styles.qrContainer}>
-                  <View style={styles.qrBg}>
-                    <SvgQRCode
-                      value={item.qrCode}
-                      size={200}
-                      backgroundColor="#FFFFFF"
-                      color="#000000"
-                    />
-                  </View>
-                  <Text style={styles.qrHint}>Show this at the door</Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('FullScreenTicket', { ticket: item })}
+                    activeOpacity={0.9}
+                  >
+                    <View style={styles.qrBg}>
+                      <SvgQRCode
+                        value={item.qrCode}
+                        size={200}
+                        backgroundColor="#FFFFFF"
+                        color="#000000"
+                      />
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.fullScreenButton}
+                    onPress={() => navigation.navigate('FullScreenTicket', { ticket: item })}
+                  >
+                    <Ionicons name="expand-outline" size={16} color={Colors.primary} />
+                    <Text style={styles.fullScreenText}>Full Screen QR</Text>
+                  </TouchableOpacity>
+                  <Text style={styles.qrHint}>Tap QR code for full screen view</Text>
                 </View>
               )}
 
@@ -237,6 +252,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     padding: Spacing.md,
     borderRadius: BorderRadius.md,
+  },
+  fullScreenButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingVertical: Spacing.sm,
+    paddingHorizontal: Spacing.md,
+    backgroundColor: Colors.surface,
+    borderRadius: BorderRadius.sm,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+  },
+  fullScreenText: {
+    color: Colors.primary,
+    fontSize: FontSize.sm,
+    fontWeight: '600',
   },
   qrHint: {
     color: Colors.textMuted,

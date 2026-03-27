@@ -82,6 +82,7 @@ export type RootStackParamList = {
   TicketDetail: { ticketId: string };
   DJDetail: { djId: string };
   TicketCheckout: { eventId: string; ticketTypeId: string };
+  FullScreenTicket: { ticket: Ticket };
   Login: undefined;
   Register: undefined;
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,12 +9,17 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  Switch,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
+import {
+  requestNotificationPermission,
+  areNotificationsEnabled,
+} from '../services/notifications';
 
 export function ProfileScreen() {
   const { user, isAuthenticated, login, register, logout } = useAuth();
@@ -57,6 +62,27 @@ export function ProfileScreen() {
     ]);
   };
 
+  const [notificationsOn, setNotificationsOn] = useState(false);
+
+  useEffect(() => {
+    areNotificationsEnabled().then(setNotificationsOn);
+  }, []);
+
+  const toggleNotifications = async (value: boolean) => {
+    if (value) {
+      const granted = await requestNotificationPermission();
+      setNotificationsOn(granted);
+      if (!granted) {
+        Alert.alert(
+          'Notifications Disabled',
+          'Please enable notifications in your device Settings to receive event reminders.'
+        );
+      }
+    } else {
+      setNotificationsOn(false);
+    }
+  };
+
   if (isAuthenticated && user) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -76,7 +102,16 @@ export function ProfileScreen() {
 
           <GlassCard style={styles.menuCard}>
             <MenuItem icon="person-outline" label="Edit Profile" />
-            <MenuItem icon="notifications-outline" label="Notifications" />
+            <View style={menuStyles.item}>
+              <Ionicons name="notifications-outline" size={20} color={Colors.textSecondary} />
+              <Text style={menuStyles.label}>Event Reminders</Text>
+              <Switch
+                value={notificationsOn}
+                onValueChange={toggleNotifications}
+                trackColor={{ false: Colors.surfaceLight, true: Colors.primaryDark }}
+                thumbColor={notificationsOn ? Colors.primary : Colors.textMuted}
+              />
+            </View>
             <MenuItem icon="shield-checkmark-outline" label="Privacy" />
             <MenuItem icon="help-circle-outline" label="Help & Support" />
           </GlassCard>
