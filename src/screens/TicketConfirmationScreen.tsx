@@ -22,6 +22,7 @@ import {
 } from '../services/wallet';
 import { Colors, Spacing, FontSize, BorderRadius } from '../constants/theme';
 import { GlassCard } from '../components/GlassCard';
+import { reviewPrompt } from '../services/reviewPrompt';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'TicketConfirmation'>;
 
@@ -38,6 +39,12 @@ export function TicketConfirmationScreen({ route, navigation }: Props) {
       .then(setTicket)
       .catch(() => setError(true))
       .finally(() => setLoading(false));
+
+    reviewPrompt.recordAttendance().then((shouldPrompt) => {
+      if (shouldPrompt) {
+        setTimeout(() => reviewPrompt.requestReview(), 2000);
+      }
+    });
   }, [ticketId]);
 
   const goToTickets = () => {

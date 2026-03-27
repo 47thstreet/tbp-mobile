@@ -122,7 +122,8 @@
           "locationWhenInUsePermission": "Find events happening near you"
         }
       ],
-      "expo-linking"
+      "expo-linking",
+      "expo-store-review"
     ]
   }
 }

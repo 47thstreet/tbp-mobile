@@ -12,12 +12,16 @@ type MilestoneEvent =
   | 'first_ticket_purchase'
   | 'first_share';
 
+type ReviewEvent =
+  | 'review_prompt_shown'
+  | 'review_prompt_completed';
+
 type OnboardingEvent =
   | 'onboarding_slide_view'
   | 'onboarding_slide_exit'
   | 'onboarding_skip';
 
-type AnalyticsEventName = MilestoneEvent | OnboardingEvent;
+type AnalyticsEventName = MilestoneEvent | OnboardingEvent | ReviewEvent;
 
 interface AnalyticsPayload {
   event: AnalyticsEventName;
@@ -146,6 +150,16 @@ export const analytics = {
   /** Track first share action (only fires once) */
   async trackFirstShare(eventId: string): Promise<void> {
     await trackOnce('first_share', { eventId });
+  },
+
+  /** Track when the store review prompt is shown */
+  trackReviewPromptShown(): void {
+    track('review_prompt_shown');
+  },
+
+  /** Track when the store review prompt is completed */
+  trackReviewPromptCompleted(): void {
+    track('review_prompt_completed');
   },
 
   /** Force flush any queued events (call on app background) */
