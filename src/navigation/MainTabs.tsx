@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { MainTabParamList } from '../types';
 import { Colors, FontSize } from '../constants/theme';
 import { HomeScreen } from '../screens/HomeScreen';
+import { SocialFeedScreen } from '../screens/SocialFeedScreen';
 import { MyTicketsScreen } from '../screens/MyTicketsScreen';
 import { DJsScreen } from '../screens/DJsScreen';
 import { PromoterDashboardScreen } from '../screens/PromoterDashboardScreen';
@@ -13,6 +14,7 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
 
 const tabIcons: Record<keyof MainTabParamList, { active: string; inactive: string }> = {
   Home: { active: 'flame', inactive: 'flame-outline' },
+  Feed: { active: 'images', inactive: 'images-outline' },
   MyTickets: { active: 'ticket', inactive: 'ticket-outline' },
   DJs: { active: 'headset', inactive: 'headset-outline' },
   Promoter: { active: 'megaphone', inactive: 'megaphone-outline' },
@@ -45,6 +47,7 @@ export function MainTabs() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Feed" component={SocialFeedScreen} />
       <Tab.Screen
         name="MyTickets"
         component={MyTicketsScreen}

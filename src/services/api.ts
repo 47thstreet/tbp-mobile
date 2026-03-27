@@ -1,6 +1,6 @@
 import * as SecureStore from 'expo-secure-store';
 import { API_BASE_URL, ENDPOINTS } from '../constants/api';
-import { Event, Ticket, DJ, User, PromoterStats } from '../types';
+import { Event, Ticket, DJ, User, PromoterStats, FeedResponse } from '../types';
 
 const TOKEN_KEY = 'tbp_auth_token';
 
@@ -81,5 +81,15 @@ export const api = {
   },
   promoter: {
     stats: () => request<PromoterStats>(ENDPOINTS.promoter.stats),
+  },
+  feed: {
+    list: (cursor?: string) =>
+      request<FeedResponse>(
+        cursor ? `${ENDPOINTS.feed.list}?cursor=${cursor}` : ENDPOINTS.feed.list
+      ),
+    like: (postId: string) =>
+      request<{ liked: boolean; likeCount: number }>(ENDPOINTS.feed.like(postId), {
+        method: 'POST',
+      }),
   },
 };

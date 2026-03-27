@@ -76,6 +76,32 @@ export interface PromoterStats {
   promoLink: string;
 }
 
+export interface FeedPost {
+  id: string;
+  type: 'photo' | 'story' | 'activity';
+  author: {
+    id: string;
+    name: string;
+    avatar?: string;
+    persona?: 'noctvrnal' | 'mia-noir';
+    verified?: boolean;
+  };
+  content: string;
+  images?: string[];
+  eventId?: string;
+  eventTitle?: string;
+  likeCount: number;
+  commentCount: number;
+  liked: boolean;
+  createdAt: string;
+}
+
+export interface FeedResponse {
+  posts: FeedPost[];
+  nextCursor?: string;
+  hasMore: boolean;
+}
+
 export interface CheckoutSession {
   sessionId: string;
   clientSecret: string;
@@ -104,6 +130,7 @@ export type RootStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
+  Feed: undefined;
   MyTickets: undefined;
   DJs: undefined;
   Promoter: undefined;
